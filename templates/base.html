@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="{% static 'favicon.ico' %}"
+  >
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous"
+  >
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"
+  ></script>
+  <title>
+    HealthlevelSeven
+  </title>
+  <link
+    rel="stylesheet"
+    href="{% static 'css/style.css' %}"
+  >
+</head>
+<header
+  class="mb-5 text-center"
+>
+  <nav
+    class="navbar navbar-expand-lg header p-3"
+  >
+    <img
+      src="{% static 'z.png' %}"
+    />
+    <a
+      class="navbar-brand mx-3 custom-text-color"
+      href="http://127.0.0.1:8000/hl7/home/"
+    >
+      HealthLevelSeven
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarNav"
+    >
+      <ul
+        class="navbar-nav"
+      >
+        <li
+          class="nav-item active"
+        >
+          <a
+            class="nav-link  {% if request.path == '/hl7/text-input/' %}active{% endif %}"
+            href="/hl7/text-input/"
+          >
+            Text to HL7
+          </a>
+        </li>
+        <li
+          class="nav-item active"
+        >
+          <a
+            class="nav-link {% if request.path == '/hl7/upload/' %}active{% endif %}"
+            href="/hl7/upload-excel/"
+          >
+            Excel to HL7
+          </a>
+        </li>
+        <li
+          class="nav-item active"
+        >
+          <a
+            class="nav-link {% if request.path == '/hl7/upload/' %}active{% endif %}"
+            href="/hl7/upload-excel/"
+          >
+            CSV to HL7
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<body
+  style="background-color:#adb5bd;"
+  class="body"
+>
+
+{% block content %}
+
+{% endblock content %}
+
+<footer
+  class="footer p-3 fixed-bottom"
+>
+  <div
+    class="container"
+  >
+    <span
+      class="text-muted"
+    >
+      Links:
+    </span>
+  </div>
+  <div
+    class="container"
+  >
+    <a
+      class="text-right"
+      href="https://github.com/"
+      target="_blank"
+      style="text-decoration:none; color:black;"
+    >
+      Github
+    </a>
+  </div>
+  <div
+    class="container"
+  >
+    <a
+      class="text-right"
+      href="https://github.com/"
+      target="_blank"
+      style="text-decoration:none; color:black;"
+    >
+      Contribute
+    </a>
+  </div>
+</footer>
+</body>
+</html>

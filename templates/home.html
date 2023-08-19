@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div
+  class="text-center pt-5"
+>
+  <h1>
+    Free Open source HL7 converter
+  </h1>
+  <h2>
+    Transforming Data with Precision
+  </h2>
+  <p>
+    All data converted remains locally on your machine and will not saved on our servers
+  </p>
+</div>
+<div
+  class="text-center pt-5"
+>
+  <button
+    style="color:white;"
+    onclick="window.location.href='/hl7/text-input/';"
+    class="btn custom-button m-2"
+  >
+    Text to HL7
+  </button>
+  <button
+    style="color:white;"
+    onclick="window.location.href='/hl7/upload-excel/';"
+    class="btn custom-button m-2"
+  >
+    CSV to HL7
+  </button>
+</div>
+
+{% endblock content %}
