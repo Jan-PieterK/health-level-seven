@@ -1,15 +1,22 @@
 from django.shortcuts import render, redirect
 from .models import CSVData
 from .forms import TextInputForm
-from src.converter import data_to_hl7, convert
+from src.converter import data_to_hl7, convert, hl7_to_csv
 
 
 def home_view(request):
-    return render(request, "home.html")
+    return render(request,
+                  "home.html")
 
 
 def textbox_view(request):
-    return render(request, 'upload.html')
+    return render(request,
+                  'upload.html')
+
+
+def upload_csv(request):
+    return render(request,
+                  'upload-csv.html')
 
 
 def upload_excel(request):
@@ -60,3 +67,33 @@ def text_input_view(request):
                   {'form': form})
 
 
+def hl7_to_csv_view(request):
+    if request.method == 'POST':
+
+        form = TextInputForm(request.POST)
+        if form.is_valid():
+            submitted_text = form.cleaned_data['text_input']
+            if '|' not in submitted_text:
+                return render(request,
+                              'hl7_to_csv_page.html',
+                              {'error_message': 'Please upload the required HL7 format'})
+            try:
+                csv_data = hl7_to_csv(submitted_text)  # Transform HL7 to CSV-like format
+            except:
+                pass
+
+            else:
+                context = {
+                    'csv_data': csv_data,  # Use the transformed CSV data
+                }
+                return render(request, 'hl7_to_csv_page.html', context)
+        else:
+            return render(request,
+                          'hl7_to_csv_page.html',
+                          {'error_message': 'No HL7 message submitted'})
+
+    form = TextInputForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'hl7_to_csv_page.html', context)

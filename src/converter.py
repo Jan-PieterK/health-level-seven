@@ -72,3 +72,49 @@ def convert(content: str) -> Dict[str, List[List[str]]]:
         hl7_data[segment_name][index_l1][index_l2][index_l3] = value
 
     return hl7_data
+
+
+def hl7_to_csv(hl7_message: str) -> str:
+    segments = hl7_message.split('\n')
+    csv_data = []
+
+    for segment in segments:
+        if segment:
+            fields = segment.split('|')
+            segment_name = fields[0]
+            for index, field in enumerate(fields[1:], start=1):
+                if field:
+                    if '^' in field:
+                        subfields = field.split('^')
+                        for sub_index, subfield in enumerate(subfields, start=1):
+                            if subfield:
+                                csv_data.append(f'{segment_name};{index}.{sub_index};{subfield}')
+                    else:
+                        csv_data.append(f'{segment_name};{index};{field}')
+
+    return '\n'.join(csv_data)
+
+
+def hl7_to_csv(hl7_message):
+    csv_data = []
+    segments = hl7_message.split('\n')
+
+    for segment in segments:
+        if segment:
+            fields = segment.split('|')
+            segment_name = fields[0]
+            for index, field in enumerate(fields[1:], start=1):
+                if field:
+                    subfields = field.split('^')
+                    for sub_index, subfield in enumerate(subfields, start=1):
+                        if subfield:
+                            if '&&' in subfield:
+                                subsubfields = subfield.split('&&')
+                                for subsub_index, subsubfield in enumerate(subsubfields, start=1):
+                                    csv_data.append(
+                                        f'{segment_name};{index}.{sub_index}.{subsub_index};{subsubfield}')
+                            else:
+                                csv_data.append(
+                                    f'{segment_name};{index}.{sub_index};{subfield}')
+
+    return '\n'.join(csv_data)
