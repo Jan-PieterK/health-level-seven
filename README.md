@@ -10,7 +10,6 @@ The Health Level Seven (HL7) Converter is a tool designed to facilitate the conv
   - Excel to HL7
 
 - Convert HL7 messages from different formats:
-  - HL7 to Text
   - HL7 to CSV
   - HL7 to Excel
 
