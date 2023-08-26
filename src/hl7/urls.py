@@ -1,9 +1,9 @@
+from django.conf import settings
 from django.urls import path
 from . import views
 from .views import home_view, upload_csv, text_input_view, hl7_to_csv_view, hl7_to_excel_view
-from django.conf import settings
-from django.conf.urls.static import static
 
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("home/", home_view, name='home'),
