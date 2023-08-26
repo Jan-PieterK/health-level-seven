@@ -1,9 +1,6 @@
 from django.urls import path
 from . import views
-from .views import text_input_view
-from .views import home_view
-from .views import upload_csv
-from .views import hl7_to_csv_view
+from .views import home_view, upload_csv, text_input_view, hl7_to_csv_view, hl7_to_excel_view
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -14,6 +11,7 @@ urlpatterns = [
     path('upload-csv/', upload_csv, name='upload_csv'),
     path('text-input/', text_input_view, name='text_input_view'),
     path('hl7_to_csv/', hl7_to_csv_view, name='hl7_to_csv'),
+    path('hl7_to_excel/', hl7_to_excel_view, name='hl7_to_excel'),
 ]
 
 if settings.DEBUG:
