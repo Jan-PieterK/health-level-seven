@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("home/", home_view, name='home'),
+    path("", home_view, name='home'),
     path('excel-to-hl7/', upload_excel, name='excel-to-hl7'),
     path('csv-to-hl7/', upload_csv, name='csv-to-hl7'),
     path('text-to-hl7/', text_input, name='text-to-hl7'),

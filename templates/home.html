@@ -20,21 +20,21 @@
 >
   <button
     style="color:white;"
-    onclick="window.location.href='/hl7/upload-csv/';"
+    onclick="window.location.href='{% url 'csv-to-hl7' %}';"
     class="btn custom-button m-2"
   >
     CSV to HL7
   </button>
   <button
     style="color:white;"
-    onclick="window.location.href='/hl7/text-input/';"
+    onclick="window.location.href='{% url 'text-to-hl7' %}';"
     class="btn custom-button m-2"
   >
     Text to HL7
   </button>
   <button
     style="color:white;"
-    onclick="window.location.href='/hl7/upload-excel/';"
+    onclick="window.location.href='{% url 'excel-to-hl7' %}';"
     class="btn custom-button m-2"
   >
     Excel to HL7
@@ -45,14 +45,14 @@
 >
   <button
     style="color:white;"
-    onclick="window.location.href='/hl7/hl7_to_csv/';"
+    onclick="window.location.href='{% url 'hl7-to-csv' %}';"
     class="btn custom-button m-2"
   >
     HL7 to CSV
   </button>
   <button
     style="color:white;"
-    onclick="window.location.href='/hl7/hl7_to_excel/';"
+    onclick="window.location.href='{% url 'hl7-to-excel' %}';"
     class="btn custom-button m-2"
   >
     HL7 to Excel

@@ -39,7 +39,7 @@
     />
     <a
       class="navbar-brand mx-3 custom-text-color"
-      href="/hl7/home/"
+      href="/"
     >
       HealthLevelSeven
     </a>
@@ -63,13 +63,13 @@
         aria-labelledby="dropdownMenuLink">
         <a
           class="dropdown-item"
-          href="/hl7/hl7_to_csv/"
+          href="{% url 'hl7-to-csv' %}"
         >
           HL7 to CSV
         </a>
         <a
           class="dropdown-item"
-          href="/hl7/hl7_to_excel/"
+          href="{% url 'hl7-to-excel' %}"
         >
           HL7 to Excel
         </a>
@@ -95,19 +95,19 @@
         aria-labelledby="dropdownMenuLink">
         <a
           class="dropdown-item"
-          href="/hl7/upload-csv/"
+          href="{% url 'csv-to-hl7' %}"
         >
           CSV to HL7
         </a>
         <a
           class="dropdown-item"
-          href="/hl7/upload-excel/"
+          href="{% url 'excel-to-hl7' %}"
         >
           Excel to HL7
         </a>
         <a
           class="dropdown-item"
-          href="/hl7/text-input/"
+          href="{% url 'text-to-hl7' %}"
         >
           Text to HL7
         </a>
