@@ -47,6 +47,6 @@ For questions or feedback, feel free to reach out to us at [jpknol2000@gmail.com
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.txt).
 
 

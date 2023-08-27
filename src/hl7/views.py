@@ -16,7 +16,7 @@ def textbox_view(request):
 
 def upload_csv(request):
     return render(request,
-                  'upload-csv.html')
+                  'csv_to_hl7.html')
 
 
 def upload_excel(request):
@@ -29,21 +29,21 @@ def upload_excel(request):
                     hl7_data=convert(data)
                 )
                 return render(request,
-                              'upload-excel.html',
+                              'excel_to_hl7.html',
                               {'hl7_message': hl7_message})
             else:
                 return render(request,
-                              'upload-excel.html',
+                              'excel_to_hl7.html',
                               {'error_message': 'Invalid file format. Please upload a Excel file.'})
         else:
             return render(request,
-                          'upload-excel.html',
+                          'excel_to_hl7.html',
                           {'error_message': 'No file uploaded. Please select a Excel file to upload.'})
     return render(request,
-                  'upload-excel.html')
+                  'excel_to_hl7.html')
 
 
-def text_input_view(request):
+def text_input(request):
     if request.method == 'POST':
         form = TextInputForm(request.POST)
         if form.is_valid():
@@ -54,24 +54,24 @@ def text_input_view(request):
                 )
             except:
                 return render(request,
-                              'text_input_page.html',
+                              'text_to_hl7.html',
                               {'error_message': 'Please enter text in the required csv format'})
             return render(request,
-                          'text_input_page.html',
+                          'text_to_hl7.html',
                           {'hl7_message': hl7_message})
         else:
             return render(request,
-                          'text_input_page.html',
+                          'text_to_hl7.html',
                           {'error_message': 'No text submitted'})
     else:
         form = TextInputForm()
 
     return render(request,
-                  'text_input_page.html',
+                  'text_to_hl7.html',
                   {'form': form})
 
 
-def hl7_to_csv_view(request):
+def hl7_to_csv(request):
     if request.method == 'POST':
 
         form = TextInputForm(request.POST)
@@ -79,7 +79,7 @@ def hl7_to_csv_view(request):
             submitted_text = form.cleaned_data['text_input']
             if '|' not in submitted_text:
                 return render(request,
-                              'hl7_to_csv_page.html',
+                              'hl7_to_csv.html',
                               {'error_message': 'Please upload the required HL7 format'})
             try:
                 csv_data = hl7_to_csv(submitted_text)  # Transform HL7 to CSV-like format
@@ -90,20 +90,20 @@ def hl7_to_csv_view(request):
                 context = {
                     'csv_data': csv_data,  # Use the transformed CSV data
                 }
-                return render(request, 'hl7_to_csv_page.html', context)
+                return render(request, 'hl7_to_csv.html', context)
         else:
             return render(request,
-                          'hl7_to_csv_page.html',
+                          'hl7_to_csv.html',
                           {'error_message': 'No HL7 message submitted'})
 
     form = TextInputForm()
     context = {
         'form': form,
     }
-    return render(request, 'hl7_to_csv_page.html', context)
+    return render(request, 'hl7_to_csv.html', context)
 
 
-def hl7_to_excel_view(request):
+def hl7_to_excel(request):
     if request.method == 'POST':
         form = TextInputForm(request.POST)
         if form.is_valid():
@@ -111,7 +111,7 @@ def hl7_to_excel_view(request):
             if '|' not in submitted_text:
                 return render(
                     request,
-                    'hl7_to_excel_page.html',
+                    'hl7_to_excel.html',
                     {'error_message': 'Please upload the required HL7 format'}
                 )
             try:
@@ -125,17 +125,17 @@ def hl7_to_excel_view(request):
             except Exception as e:
                 return render(
                     request,
-                    'hl7_to_excel_page.html',
+                    'hl7_to_excel.html',
                     {'error_message': 'An error occurred during conversion'}
                 )
         else:
             return render(
                 request,
-                'hl7_to_excel_page.html',
+                'hl7_to_excel.html',
                 {'error_message': 'No HL7 message submitted'}
             )
 
     form = TextInputForm()
     context = {'form': form}
     return render(request,
-                  'hl7_to_excel_page.html', context)
+                  'hl7_to_excel.html', context)
