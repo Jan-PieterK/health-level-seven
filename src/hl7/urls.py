@@ -3,7 +3,6 @@ from .views import home_view, upload_csv, text_input, hl7_to_csv, hl7_to_excel, 
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path("home/", home_view, name='home'),
     path('excel-to-hl7/', upload_excel, name='excel-to-hl7'),
