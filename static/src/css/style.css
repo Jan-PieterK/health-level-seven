@@ -1,0 +1,46 @@
+.header {
+    background-color: #adb5bd;
+}
+.custom-button {
+    background-color: #005792;
+}
+
+.bg-hl7-primary {
+    background: #005792;
+}
+
+table.bg-hl7-primary td, table.bg-hl7-primary th {
+    background: #005792;
+}
+
+table.text-hl7-white td, table.bg-hl7-primary th {
+    color: white;
+}
+
+.custom-center {
+    text-align: center;
+}
+.submitted-text {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.custom-text-color {
+    color: #005792;
+}
+.footer {
+    background-color: #adb5bd;
+}
+
+.copy-button-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+#text_input {
+    max-width: 300px
+}
+
+.hidden {
+    display: none;
+  }
