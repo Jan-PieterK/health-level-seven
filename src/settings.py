@@ -13,7 +13,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "top-secret")
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost").split(",")
 CSRF_TRUSTED_ORIGINS = os.environ.get(
-    "CSRF_TRUSTED_ORIGINS", "http://localhost:8000"
+    "CSRF_TRUSTED_ORIGINS", "http://localhost:8001"
 ).split(",")
 
 # SECURITY WARNING: don't run with debug turned on in production!
