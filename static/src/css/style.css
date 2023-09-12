@@ -45,6 +45,10 @@ table.text-hl7-white td, table.bg-hl7-primary_blue th {
     display: none;
 }
 
+.hidden_text {
+    display: none;
+}
+
 .navbar-collapse {
       text-align: center;
     }

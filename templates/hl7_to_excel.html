@@ -43,9 +43,10 @@
   </form>
   {% if excel_data %}
   <div class="mt-3">
-    <a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{{ excel_data }}"
-       class="btn custom-button"
-       download="converted_data.xlsx"
+    <a
+      href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{{ excel_data }}"
+      class="btn custom-button"
+      download="converted_data.xlsx"
     >
       Download Excel File
     </a>
