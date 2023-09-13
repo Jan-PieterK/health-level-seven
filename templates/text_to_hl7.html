@@ -22,7 +22,7 @@
       class="d-flex justify-content-center"
     >
       <textarea
-        class="form-control"
+        class="form-control text-input"
         id="text_input"
         name="text_input"
         rows="4"
@@ -78,15 +78,14 @@
   class="justify-content-center d-flex m-2"
 >
   <button
-    class="btn custom-button text-white"
+    class="btn custom-button btn-sm text-white"
     id="toggleButton"
   >
     Show format
   </button>
 </div>
-
 <div
-  class="container w-25 hidden_text"
+  class="container w-25 hidden-text"
   id="tableContainer"
 >
   <div
@@ -120,7 +119,7 @@
     const tableContainer = document.getElementById('tableContainer');
 
     toggleButton.addEventListener('click', function() {
-      tableContainer.classList.toggle('hidden_text');
+      tableContainer.classList.toggle('hidden-text');
     });
 
 </script>

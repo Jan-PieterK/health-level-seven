@@ -37,15 +37,15 @@ table.text-hl7-white td, table.bg-hl7-primary_blue th {
     height: 20px;
   }
 
-#text_input {
-    max-width: 300px
+.text-input {
+    max-width: 500px
 }
 
 .hidden {
     display: none;
 }
 
-.hidden_text {
+.hidden-text {
     display: none;
 }
 
@@ -57,14 +57,14 @@ table.text-hl7-white td, table.bg-hl7-primary_blue th {
 }
 
 @media (max-width: 991px) {
-    .dropdown-menu {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 20px;
-    }
+  .dropdown-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 20px;
   }
+}
 
 .links {
     text-decoration:none;
