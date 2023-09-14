@@ -60,7 +60,7 @@ def csv_to_hl7(request):
                   'csv_to_hl7.html')
 
 
-def text_input(request):
+def _text_to_hl7(request):
     if request.method == 'POST':
         form = TextInputForm(request.POST)
         if form.is_valid():

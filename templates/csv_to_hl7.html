@@ -43,28 +43,26 @@
             Select a CSV file:
           </label>
           <div
-            class="input-group mb-3"
+            class="input-group mb-3 justify-content-center d-flex"
           >
             <input
               type="file"
-              class="form-control"
+              class="btn btn-outline-secondary"
               id="csv_file"
               name="csv_file"
               accept=".csv"
             >
-            <button
-              style="color:white;"
-              class="btn custom-button"
-              type="submit"
-            >
-              Upload
-            </button>
           </div>
+          <button
+            class="btn custom-button text-white"
+            type="submit"
+          >
+            Upload
+          </button>
         </form>
       </div>
     </div>
   </div>
-</div>
 </div>
 <div
   class="text-center"
@@ -83,8 +81,7 @@
   class="justify-content-center d-flex m-2"
 >
   <button
-    class="btn custom-button"
-    style="color:white;"
+    class="btn custom-button btn-sm text-white"
     id="toggleButton"
   >
     Show format
@@ -95,23 +92,34 @@
   class="container w-25 hidden"
   id="tableContainer"
 >
-
-
   <div
     class="container mt-3"
   >
     <div
       class="input-group"
     >
-      <card
-        class="form-control bg-hl7-primary"
+      <table
+        class="table table-sm justify-content-center d-flex"
         id="csv-format"
-        style="white-space: pre-line; color: white;"
-        >MSH;2;^~\&;
-        PID;24.1.1;Y;
-        ENV;1;P03;
-      </card>
-      </a>
+      >
+        <tr>
+          <td>
+            MSH;2;^~\&;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            PID;24.1.1;Y;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ENV;1;P03;
+          </td>
+        </tr>
+
+
+      </table>
     </div>
   </div>
 
@@ -144,13 +152,12 @@
 {% endif %}
 
 <script>
- document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById("copy-button").addEventListener("click", function() {
-    var hl7MessageTextArea = document.getElementById("hl7-message");
-    hl7MessageTextArea.select();
-    document.execCommand("copy");
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("copy-button").addEventListener("click", function() {
+      var hl7MessageTextArea = document.getElementById("hl7-message");
+      hl7MessageTextArea.select();
+      document.execCommand("copy");
   });
-
     });
 
   const toggleButton = document.getElementById('toggleButton');
@@ -159,8 +166,6 @@
   toggleButton.addEventListener('click', function() {
     tableContainer.classList.toggle('hidden');
   });
-
-
 
 
 
