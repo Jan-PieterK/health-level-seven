@@ -9,11 +9,11 @@
     background: #005792;
 }
 
-table.bg-hl7-primary_blue td, table.bg-hl7-primary_blue th {
+table.bg-hl7-primary_blue td, table.bg-hl7-primary-blue th {
     background: #005792;
 }
 
-table.text-hl7-white td, table.bg-hl7-primary_blue th {
+table.text-hl7-white td, table.bg-hl7-primary-blue th {
     color: white;
 }
 
@@ -28,11 +28,11 @@ table.text-hl7-white td, table.bg-hl7-primary_blue th {
 .custom-text-color {
     color: #005792;
 }
-.bg_hl7_primary_grey {
+.bg-hl7-primary-grey {
     background-color: #adb5bd;
 }
 
-.bg_hl7_secondary  {
+.bg-hl7-secondary  {
     background-color: #005792;
 }
 
