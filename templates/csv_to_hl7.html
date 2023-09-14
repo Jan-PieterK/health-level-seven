@@ -43,22 +43,22 @@
             Select a CSV file:
           </label>
           <div
-            class="input-group mb-3"
+            class="input-group mb-3 justify-content-center d-flex"
           >
             <input
               type="file"
-              class="form-control"
+              class="btn btn-outline-secondary"
               id="csv_file"
               name="csv_file"
               accept=".csv"
             >
-            <button
-              class="btn custom-button text-white"
-              type="submit"
-            >
-              Upload
-            </button>
           </div>
+          <button
+            class="btn custom-button text-white"
+            type="submit"
+          >
+            Upload
+          </button>
         </form>
       </div>
     </div>
@@ -92,22 +92,34 @@
   class="container w-25 hidden"
   id="tableContainer"
 >
-
-
   <div
     class="container mt-3"
   >
     <div
       class="input-group"
     >
-      <card
-        class="form-control bg-hl7-primary_blue"
+      <table
+        class="table table-sm justify-content-center d-flex"
         id="csv-format"
-        style="white-space: pre-line; color: white;"
-        >MSH;2;^~\&;
-        PID;24.1.1;Y;
-        ENV;1;P03;
-      </card>
+      >
+        <tr>
+          <td>
+            MSH;2;^~\&;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            PID;24.1.1;Y;
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ENV;1;P03;
+          </td>
+        </tr>
+
+
+      </table>
     </div>
   </div>
 
@@ -154,6 +166,9 @@
   toggleButton.addEventListener('click', function() {
     tableContainer.classList.toggle('hidden');
   });
+
+
+
 
 </script>
 
