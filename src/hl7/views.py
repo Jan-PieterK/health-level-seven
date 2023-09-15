@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import TextInputForm
-from src.converter import data_to_hl7, convert, hl7_to_csv, hl7_to_excel, excel_to_hl7
+from src.converter import hl7_to_excel, excel_to_hl7
+from hl7 import csv_to_hl7, hl7_to_csv
 
 
 def home_view(request):
@@ -36,15 +37,13 @@ def _excel_to_hl7(request):
                   'excel_to_hl7.html')
 
 
-def csv_to_hl7(request):
+def _csv_to_hl7(request):
     if request.method == 'POST':
         if 'csv_file' in request.FILES:
             csv_file = request.FILES['csv_file']
             if csv_file.name.endswith('.csv'):
                 data = csv_file.read().decode('utf-8')
-                hl7_message = data_to_hl7(
-                    hl7_data=convert(data)
-                )
+                hl7_message = csv_to_hl7(data)
                 return render(request,
                               'csv_to_hl7.html',
                               {'hl7_message': hl7_message})
@@ -66,9 +65,7 @@ def _text_to_hl7(request):
         if form.is_valid():
             submitted_text = form.cleaned_data['text_input']
             try:
-                hl7_message = data_to_hl7(
-                    hl7_data=convert(submitted_text)
-                )
+                hl7_message = csv_to_hl7(submitted_text)
             except:
                 return render(request,
                               'text_to_hl7.html',
@@ -90,7 +87,6 @@ def _text_to_hl7(request):
 
 def _hl7_to_csv(request):
     if request.method == 'POST':
-
         form = TextInputForm(request.POST)
         if form.is_valid():
             submitted_text = form.cleaned_data['text_input']
