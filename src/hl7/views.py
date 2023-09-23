@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import TextInputForm
-from src.converter import hl7_to_excel, excel_to_hl7
-from hl7 import csv_to_hl7, hl7_to_csv
+from hl7 import csv_to_hl7, hl7_to_csv, excel_to_hl7, hl7_to_excel
 
 
 def home_view(request):
@@ -148,7 +147,5 @@ def _hl7_to_excel(request):
                 {'error_message': 'No HL7 message submitted'}
             )
 
-    form = TextInputForm()
-    context = {'form': form}
     return render(request,
-                  'hl7_to_excel.html', context)
+                  'hl7_to_excel.html', {'form': TextInputForm()})
