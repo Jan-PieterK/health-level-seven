@@ -1,5 +1,5 @@
 .header {
-    background-color: #adb5bd;
+    background-color: #e7eaea;
 }
 .custom-button {
     background-color: #005792;
@@ -13,7 +13,7 @@ table.bg-hl7-primary_blue td, table.bg-hl7-primary-blue th {
     background: #005792;
 }
 
-table.text-hl7-white td, table.bg-hl7-primary-blue th {
+table.text-hl7-white td, table.text-hl7-white th {
     color: white;
 }
 
@@ -29,7 +29,7 @@ table.text-hl7-white td, table.bg-hl7-primary-blue th {
     color: #005792;
 }
 .bg-hl7-primary-grey {
-    background-color: #adb5bd;
+    background-color: #e7eaea;
 }
 
 .bg-hl7-secondary  {
@@ -81,4 +81,28 @@ table.text-hl7-white td, table.bg-hl7-primary-blue th {
 
 .body-margin  {
     margin-bottom: 100px;
+}
+
+.border-header {
+    border-bottom: 2px solid #005792;
+}
+
+.hl7-text-font-weight-100 {
+    font-weight: 100;
+}
+
+.hl7-text-font-weight-200 {
+    font-weight: 200;
+}
+
+.hl7-text-font-weight-250 {
+    font-weight: 250;
+}
+
+.hl7-text-font-weight-300 {
+    font-weight: 300;
+}
+
+.hl7-text-font-weight-400 {
+    font-weight: 200;
 }

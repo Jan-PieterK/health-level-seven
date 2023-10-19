@@ -2,155 +2,156 @@
 {% load static %}
 {% block content %}
 
-<div
-  class="custom-center"
->
-  <h1
-    class="custom-text-color"
-  >
-    CSV file upload
-  </h1>
-  {% if messages %}
-  <ul
-    class="messages"
-  >
-    {% for message in messages %}
-    <li>
-      {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+<section class="vh-100 d-flex flex-column justify-content-center align-items-center bg-hl7-primary-grey">
   <div
-    class="container"
+    class="custom-center"
   >
+    <h1
+      class="custom-text-color hl7-text-font-weight-300"
+    >
+      CSV file upload
+    </h1>
+    {% if messages %}
+    <ul
+      class="messages"
+    >
+      {% for message in messages %}
+      <li>
+        {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
     <div
-      class="justify-content-center d-flex"
+      class="container"
     >
       <div
-        class="col-md-6"
+        class="justify-content-center d-flex"
       >
-        <form
-          class="text-center"
-          method="post"
-          enctype="multipart/form-data"
+        <div
+          class="col-md-6"
         >
-          {% csrf_token %}
-          <label
-            class="h5"
-            for="csv_file"
+          <form
+            class="text-center"
+            method="post"
+            enctype="multipart/form-data"
           >
-            Select a CSV file:
-          </label>
-          <div
-            class="input-group mb-3 justify-content-center d-flex"
-          >
-            <input
-              type="file"
-              class="btn btn-outline-secondary"
-              id="csv_file"
-              name="csv_file"
-              accept=".csv"
+            {% csrf_token %}
+            <label
+              class="h5 hl7-text-font-weight-200"
+              for="csv_file"
             >
-          </div>
-          <button
-            class="btn custom-button text-white"
-            type="submit"
-          >
-            Upload
-          </button>
-        </form>
+              Select a CSV file:
+            </label>
+            <div
+              class="input-group mb-3 justify-content-center d-flex"
+            >
+              <input
+                type="file"
+                class="btn btn-outline-secondary hl7-text-font-weight-250"
+                id="csv_file"
+                name="csv_file"
+                accept=".csv"
+              >
+            </div>
+            <button
+              class="btn custom-button text-white hl7-text-font-weight-250"
+              type="submit"
+            >
+              Upload
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div
-  class="text-center"
->
-  {{ error_message }}
-</div>
-
-<div
-  class="custom-center m-3"
->
-  <h4>
-    Required format:
-  </h4>
-</div>
-<div
-  class="justify-content-center d-flex m-2"
->
-  <button
-    class="btn custom-button btn-sm text-white"
-    id="toggleButton"
+  <div
+    class="text-center"
   >
-    Show format
-  </button>
-</div>
+    {{ error_message }}
+  </div>
 
-<div
-  class="container w-25 hidden"
-  id="tableContainer"
->
+  <div
+    class="custom-center m-3"
+  >
+    <h4 class="hl7-text-font-weight-200">
+      Required format:
+    </h4>
+  </div>
+  <div
+    class="justify-content-center d-flex m-2"
+  >
+    <button
+      class="btn custom-button btn-sm text-white hl7-text-font-weight-250"
+      id="toggleButton"
+    >
+      Show format
+    </button>
+  </div>
+
+  <div
+    class="container w-25 hidden"
+    id="tableContainer"
+  >
+    <div
+      class="container mt-3"
+    >
+      <div
+        class="input-group"
+      >
+        <table
+          class="table table-sm justify-content-center d-flex"
+          id="csv-format"
+        >
+          <tr>
+            <td>
+              MSH;2;^~\&
+            </td>
+          </tr>
+          <tr>
+            <td>
+              PID;24.1.1;Y
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ENV;1;P03
+            </td>
+          </tr>
+
+
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+  {% if hl7_message %}
   <div
     class="container mt-3"
   >
     <div
       class="input-group"
     >
-      <table
-        class="table table-sm justify-content-center d-flex"
-        id="csv-format"
-      >
-        <tr>
-          <td>
-            MSH;2;^~\&;
-          </td>
-        </tr>
-        <tr>
-          <td>
-            PID;24.1.1;Y;
-          </td>
-        </tr>
-        <tr>
-          <td>
-            ENV;1;P03;
-          </td>
-        </tr>
-
-
-      </table>
-    </div>
-  </div>
-
-
-</div>
-{% if hl7_message %}
-<div
-  class="container mt-3"
->
-  <div
-    class="input-group"
-  >
     <textarea class="form-control"
               id="hl7-message"
               rows="4"
     >{{ hl7_message }}</textarea>
-    <a
-      href="#"
-      id="copy-button"
-    >
-      <img
-        class="copy-button-icon m-2"
-        src="{% static 'copy-solid.png' %}"
-        alt="Copy"
+      <a
+        href="#"
+        id="copy-button"
       >
-    </a>
+        <img
+          class="copy-button-icon m-2"
+          src="{% static 'copy-solid.png' %}"
+          alt="Copy"
+        >
+      </a>
+    </div>
   </div>
-</div>
 
-{% endif %}
-
+  {% endif %}
+</section>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("copy-button").addEventListener("click", function() {
@@ -166,6 +167,7 @@
   toggleButton.addEventListener('click', function() {
     tableContainer.classList.toggle('hidden');
   });
+
 
 
 

@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import TextInputForm
 from hl7 import csv_to_hl7, hl7_to_csv, excel_to_hl7, hl7_to_excel
+from ..converter import is_valid_csv_format
 
 
 def home_view(request):
@@ -42,6 +43,10 @@ def _csv_to_hl7(request):
             csv_file = request.FILES['csv_file']
             if csv_file.name.endswith('.csv'):
                 data = csv_file.read().decode('utf-8')
+                if not is_valid_csv_format(data):
+                    return render(request,
+                                  'csv_to_hl7.html',
+                                  {'error_message': 'Please upload the required CSV format'})
                 hl7_message = csv_to_hl7(data)
                 return render(request,
                               'csv_to_hl7.html',
@@ -49,11 +54,11 @@ def _csv_to_hl7(request):
             else:
                 return render(request,
                               'csv_to_hl7.html',
-                              {'error_message': 'Invalid file format. Please upload a Excel file.'})
+                              {'error_message': 'Invalid file format. Please upload a CSV file.'})
         else:
             return render(request,
                           'csv_to_hl7.html',
-                          {'error_message': 'No file uploaded. Please select a Excel file to upload.'})
+                          {'error_message': 'No file uploaded. Please select a CSV file to upload.'})
     return render(request,
                   'csv_to_hl7.html')
 
@@ -64,14 +69,13 @@ def _text_to_hl7(request):
         if form.is_valid():
             submitted_text = form.cleaned_data['text_input']
             try:
-                hl7_message = csv_to_hl7(submitted_text)
-            except:
                 return render(request,
                               'text_to_hl7.html',
-                              {'error_message': 'Please enter text in the required csv format'})
-            return render(request,
-                          'text_to_hl7.html',
-                          {'hl7_message': hl7_message})
+                              {'hl7_message': csv_to_hl7(submitted_text)})
+            except Exception as e:
+                return render(request,
+                              'text_to_hl7.html',
+                              {'error_message': f'Error: {e}'})
         else:
             return render(request,
                           'text_to_hl7.html',
@@ -94,13 +98,13 @@ def _hl7_to_csv(request):
                               'hl7_to_csv.html',
                               {'error_message': 'Please upload the required HL7 format'})
             try:
-                csv_data = hl7_to_csv(submitted_text)  # Transform HL7 to CSV-like format
+                csv_data = hl7_to_csv(submitted_text)
             except:
                 pass
 
             else:
                 context = {
-                    'csv_data': csv_data,  # Use the transformed CSV data
+                    'csv_data': csv_data,
                 }
                 return render(request, 'hl7_to_csv.html', context)
         else:
@@ -126,20 +130,13 @@ def _hl7_to_excel(request):
                     'hl7_to_excel.html',
                     {'error_message': 'Please upload the required HL7 format'}
                 )
-            try:
-                excel_data = hl7_to_excel(submitted_text)  # Transform HL7 to Excel format
-                response = HttpResponse(
-                    content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-                )
-                response['Content-Disposition'] = 'attachment; filename="converted_data.xlsx"'
-                response.write(excel_data)
-                return response
-            except Exception as e:
-                return render(
-                    request,
-                    'hl7_to_excel.html',
-                    {'error_message': 'An error occurred during conversion'}
-                )
+            excel_data = hl7_to_excel(submitted_text)
+            response = HttpResponse(
+                content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            )
+            response['Content-Disposition'] = 'attachment; filename="converted_data.xlsx"'
+            response.write(excel_data)
+            return response
         else:
             return render(
                 request,

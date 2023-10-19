@@ -2,56 +2,102 @@
 
 {% block content %}
 
-<div
-  class="text-center pt-5"
+<section class="vh-100 d-flex flex-column justify-content-center align-items-center bg-hl7-primary-grey">
+  <div
+    class="text-center pt-5"
+  >
+    <h1 class="hl7-text-font-weight-300">
+      Free Open source HL7 converter
+    </h1>
+    <h2 class="hl7-text-font-weight-300">
+      Transforming Data with Precision
+    </h2>
+    <p class="hl7-text-font-weight-200">
+      All data converted remains locally on your machine and will not saved on our servers
+    </p>
+  </div>
+  <div
+    class="text-center pt-5"
+  >
+    <button
+      onclick="window.location.href='{% url 'csv-to-hl7' %}';"
+      class="btn custom-button m-2 text-white hl7-text-font-weight-250"
+    >
+      CSV to HL7
+    </button>
+    <button
+      onclick="window.location.href='{% url 'text-to-hl7' %}';"
+      class="btn custom-button m-2 text-white hl7-text-font-weight-250"
+    >
+      Text to HL7
+    </button>
+    <button
+      onclick="window.location.href='{% url 'excel-to-hl7' %}';"
+      class="btn custom-button m-2 text-white hl7-text-font-weight-250"
+    >
+      Excel to HL7
+    </button>
+  </div>
+  <div
+    class="text-center pt-2"
+  >
+    <button
+      onclick="window.location.href='{% url 'hl7-to-csv' %}';"
+      class="btn custom-button m-2 text-white hl7-text-font-weight-250"
+    >
+      HL7 to CSV
+    </button>
+    <button
+      onclick="window.location.href='{% url 'hl7-to-excel' %}';"
+      class="btn custom-button m-2 text-white hl7-text-font-weight-250"
+    >
+      HL7 to Excel
+    </button>
+  </div>
+</section>
+<section
+  class="vh-100 d-flex flex-column justify-content-center align-items-center bg-hl7-primary_blue"
 >
-  <h1>
-    Free Open source HL7 converter
-  </h1>
-  <h2>
-    Transforming Data with Precision
-  </h2>
-  <p>
-    All data converted remains locally on your machine and will not saved on our servers
-  </p>
-</div>
-<div
-  class="text-center pt-5"
->
-  <button
-    onclick="window.location.href='{% url 'csv-to-hl7' %}';"
-    class="btn custom-button m-2 text-white"
-  >
-    CSV to HL7
-  </button>
-  <button
-    onclick="window.location.href='{% url 'text-to-hl7' %}';"
-    class="btn custom-button m-2 text-white"
-  >
-    Text to HL7
-  </button>
-  <button
-    onclick="window.location.href='{% url 'excel-to-hl7' %}';"
-    class="btn custom-button m-2 text-white"
-  >
-    Excel to HL7
-  </button>
-</div>
-<div
-  class="text-center pt-2"
->
-  <button
-    onclick="window.location.href='{% url 'hl7-to-csv' %}';"
-    class="btn custom-button m-2 text-white"
-  >
-    HL7 to CSV
-  </button>
-  <button
-    onclick="window.location.href='{% url 'hl7-to-excel' %}';"
-    class="btn custom-button m-2 text-white"
-  >
-    HL7 to Excel
-  </button>
-</div>
+  <div class="container">
+    <h1
+    class="mb-5 text-center text-white hl7-text-font-weight-300"
+    >About the different conversions </h1>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="format">
+          <h3 class="text-white hl7-text-font-weight-300">HL7</h3>
+          <p class="text-white text-justify hl7-text-font-weight-100" style="line-height: 30px;">HL7 is a crucial standard for healthcare data exchange. Our conversion tool lets you get insight in how the
+            message is built. It simplifies data conversion both from and to HL7 formats, making it easier to understand
+            for better documenting and inight in the HL7 protocol.
+
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="format">
+          <h3 class="text-white hl7-text-font-weight-300">CSV</h3>
+          <p
+            class="text-white text-justify hl7-text-font-weight-100"
+            style="line-height: 30px;">CSV is a handy format in our conversion tool. It helps organize data neatly, making it simple to switch
+            between HL7 and other formats. This ease of use is essential for efficient healthcare data management and
+            helps with documenting.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="format">
+          <h3 class="text-white hl7-text-font-weight-300">Excel</h3>
+          <p
+            class="text-white text-justify hl7-text-font-weight-100"
+            style="line-height: 30px;">Our conversion tool effortlessly connects with Excel. This feature simplifies data conversion between HL7
+            and Excel formats, ensuring clarity and efficiency, which is particularly beneficial for robust
+            documentation and data handling tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock content %}
