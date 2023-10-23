@@ -10,24 +10,35 @@
   </title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="bg-hl7-primary-grey body-margin">
-<header class="mb-1 text-center">
+<body class="bg-hl7-primary-blue">
+<header class="mb-1 text-center fixed-top border-header">
   <nav class="navbar navbar-expand-lg header p-3">
     <a href="/">
-      <img src="{% static 'z.png' %}">
+      <img src="{% static 'logo.png' %}">
     </a>
-    <a class="navbar-brand mx-3 custom-text-color" href="/">HealthLevelSeven</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a
+      class="navbar-brand
+      mx-3 custom-text-color"
+      href="/">HealthLevelSeven
+    </a>
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div
+      class="collapse navbar-collapse"
+      id="navbarNav">
       <div
         class="dropdown show"
       >
         <button
-          class="btn custom-button dropdown-toggle m-2 text-white"
-          href="#" role="button"
+          class="btn custom-button dropdown-toggle m-2 text-white hl7-text-font-weight-250"
+          role="button"
           id="dropdown-menu-link-from-hl7"
           data-toggle="dropdown"
           aria-haspopup="true"
@@ -57,8 +68,8 @@
         class="dropdown show"
       >
         <button
-          class="btn custom-button dropdown-toggle text-white"
-          href="#" role="button"
+          class="btn custom-button dropdown-toggle text-white hl7-text-font-weight-250"
+          role="button"
           id="dropdown-menu-link-to-hl7"
           data-toggle="dropdown"
           aria-haspopup="true"
@@ -93,44 +104,42 @@
     </div>
   </nav>
 </header>
-<div
-  class="container"
->
-
-  {% block content %}
-
-  {% endblock content %}
+<div>
+  {% block content %}{% endblock content %}
 </div>
 <footer
-  class="bg-hl7-primary_grey p-3 fixed-bottom bg-hl7-secondary"
+  class="bg-hl7-primary_grey p-3 fixed-bottom bg-hl7-secondary border-top border-white"
 >
-  <div
-    class="container"
-  >
-  </div>
   <div
     class="container"
   >
     <a
-      class="text-right links mr-3 text-white"
+      class="text-right links mr-3 text-white hl7-text-font-weight-200"
       href="https://github.com/Jan-PieterK/health-level-seven"
       target="_blank"
     >
       Github
     </a>
     <a
-      class="text-right links text-white mr-3"
+      class="text-right links text-white mr-3 hl7-text-font-weight-200"
       href="https://github.com/Jan-PieterK/health-level-seven"
       target="_blank"
     >
       Contribute
     </a>
     <a
-      class="text-right links text-white"
-      href="https://github.com/Jan-PieterK/health-level-seven"
+      class="text-right links text-white mr-3 hl7-text-font-weight-200"
+      href="https://github.com/Jan-PieterK/py-hl7"
       target="_blank"
     >
       py-hl7
+    </a>
+    <a
+      class="text-white text-right links mr-3 hl7-text-font-weight-200"
+      href="https://github.com/Jan-PieterK/health-level-seven/blob/main/LICENSE.txt"
+      target="_blank"
+    >
+      License
     </a>
   </div>
 </footer>
