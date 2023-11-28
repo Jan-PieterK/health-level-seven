@@ -1,8 +1,32 @@
 ---
 version: "3"
 services:
-  health-level-seven:
+  hls_backend:
     build: .
+    container_name: hls_backend
     restart: always
     ports:
-      - 8001:8001
+      - 8008:8008
+    networks:
+      - hls_network
+  hls_webserver:
+    image: nginx:1.13
+    container_name: hls_webserver
+    restart: always
+    ports:
+      - 8001:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./static:/opt/code/static
+    depends_on:
+      - hls_backend
+    networks:
+      - hls_network
+
+networks:
+  hls_network:
+    driver: bridge
+
+volumes:
+  static_volume:
+
