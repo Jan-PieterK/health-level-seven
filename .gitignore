@@ -4,3 +4,7 @@
 
 *.pyc
 *.pyo
+BrowserTests/Results/
+log.html
+output.xml
+report.html
