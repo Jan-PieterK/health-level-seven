@@ -16,8 +16,7 @@
       Paste HL7 message here:
     </h3>
     <form
-      method="post"
-      action="{% url 'hl7-to-csv' %}"
+      method="POST"
     >
       {% csrf_token %}
       <div
@@ -36,10 +35,11 @@
         {{ error_message }}
       </div>
       <input
+        id="convert-button"
         class="btn custom-button text-white hl7-text-font-weight-250"
         type="submit"
         value="Convert"
-      >
+      />
     </form>
     {% if csv_data %}
     <div
