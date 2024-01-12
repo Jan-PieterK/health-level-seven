@@ -18,11 +18,15 @@ def _excel_to_hl7(request):
                     excel_file_path = excel_file
                     hl7_message = excel_to_hl7(excel_file_path)
                     return render(
-                        request, "excel_to_hl7.html", {"hl7_message": hl7_message}
+                        request,
+                        "excel_to_hl7.html",
+                        {"hl7_message": hl7_message},
                     )
                 except Exception as e:
                     return render(
-                        request, "excel_to_hl7.html", {"error_message": f"Error: {e}"}
+                        request,
+                        "excel_to_hl7.html",
+                        {"error_message": f"Error: {e}"},
                     )
             else:
                 return render(
@@ -53,15 +57,21 @@ def _csv_to_hl7(request):
                     return render(
                         request,
                         "csv_to_hl7.html",
-                        {"error_message": "Please upload the required CSV format"},
+                        {
+                            "error_message": "Please upload the required CSV format"
+                        },
                     )
                 hl7_message = csv_to_hl7(data)
-                return render(request, "csv_to_hl7.html", {"hl7_message": hl7_message})
+                return render(
+                    request, "csv_to_hl7.html", {"hl7_message": hl7_message}
+                )
             else:
                 return render(
                     request,
                     "csv_to_hl7.html",
-                    {"error_message": "Invalid file format. Please upload a CSV file."},
+                    {
+                        "error_message": "Invalid file format. Please upload a CSV file."
+                    },
                 )
         else:
             return render(
@@ -87,11 +97,15 @@ def _text_to_hl7(request):
                 )
             except Exception as e:
                 return render(
-                    request, "text_to_hl7.html", {"error_message": f"Error: {e}"}
+                    request,
+                    "text_to_hl7.html",
+                    {"error_message": f"Error: {e}"},
                 )
         else:
             return render(
-                request, "text_to_hl7.html", {"error_message": "No text submitted"}
+                request,
+                "text_to_hl7.html",
+                {"error_message": "No text submitted"},
             )
     else:
         form = TextInputForm()
