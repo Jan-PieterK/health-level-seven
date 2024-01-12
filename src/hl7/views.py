@@ -1,8 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import TextInputForm
-from hl7 import csv_to_hl7, hl7_to_csv, excel_to_hl7, hl7_to_excel
+
+from hl7 import csv_to_hl7, excel_to_hl7, hl7_to_csv, hl7_to_excel
 from src.converter import is_valid_csv_format
+
+from .forms import TextInputForm
 
 
 def home_view(request):
