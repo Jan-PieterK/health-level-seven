@@ -8,3 +8,6 @@ BrowserTests/Results/
 log.html
 output.xml
 report.html
+scraping/
+playwright-log.txt
+api/
