@@ -59,21 +59,15 @@ def _csv_to_hl7(request):
                     return render(
                         request,
                         "csv_to_hl7.html",
-                        {
-                            "error_message": "Please upload the required CSV format"
-                        },
+                        {"error_message": "Please upload the required CSV format"},
                     )
                 hl7_message = csv_to_hl7(data)
-                return render(
-                    request, "csv_to_hl7.html", {"hl7_message": hl7_message}
-                )
+                return render(request, "csv_to_hl7.html", {"hl7_message": hl7_message})
             else:
                 return render(
                     request,
                     "csv_to_hl7.html",
-                    {
-                        "error_message": "Invalid file format. Please upload a CSV file."
-                    },
+                    {"error_message": "Invalid file format. Please upload a CSV file."},
                 )
         else:
             return render(
